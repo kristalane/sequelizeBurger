@@ -1,7 +1,7 @@
 {
-  "name": "burger",
+  "name": "sequelizeBurger",
   "version": "1.0.0",
-  "description": "CRUD! Bringing it together: an app to add, update, remove or view types of burgers using node, express, mysql and handlebars.",
+  "description": "CRU(-D)! Bringing it together: an app to add, update or view types of burgers using node, express, sequelize and handlebars.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -22,6 +22,8 @@
     "express": "^4.15.3",
     "express-handlebars": "^3.0.0",
     "method-override": "^2.3.9",
-    "mysql": "^2.14.1"
+    "mysql": "^2.14.1",
+    "mysql2": "^1.4.0",
+    "sequelize": "^4.4.3"
   }
 }

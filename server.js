@@ -6,7 +6,9 @@ var PORT = process.env.PORT || 8080;
 
 var app = express();
 
-// app.use(express.static("public"));
+var db = require("./models");
+
+app.use(express.static("views"));
 
 app.use(bodyParser.urlencoded({ extended: false }));
 
@@ -17,9 +19,16 @@ var exphbs = require("express-handlebars");
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
-// Import routes and give the server access to them.
-var routes = require("./controllers/burger_controllers.js");
 
+// Import routes and give the server access to them.
+require("./routes/api-routes.js")(app);
+require("./routes/html-routes.js")(app);
+
+var routes = require("./controllers/burger_controller.js")
 app.use("/", routes);
 
-app.listen(PORT);
+db.sequelize.sync({force:true}).then(function() {
+  app.listen(PORT, function(){
+    console.log("App listening on PORT " + PORT);
+  });
+});

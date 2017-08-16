@@ -8,8 +8,9 @@
       <li>
         {{this.burger_name}}
 
-        <form action="/{{this.id}}?_method=PUT" method="POST">
-          <input type="hidden" name="devoured" value="true">
+        <form action="/api/burger?_method=PUT" method="POST">
+          <input type="hidden" name="id" value="{{this.id}}">
+          <input type="hidden" name="devoured" value="1">
           <button type="submit">EAT IT!</button>
         </form>
       </li>
@@ -25,9 +26,10 @@
       <li>
         {{this.burger_name}}
 
-        <form action="/{{this.id}}?_method=PUT" method="POST">
-          <input type="hidden" name="devoured" value="false">
-          <button type="submit">UNEAT</button>
+        <form action="/api/burger?_method=PUT" method="POST">
+          <input type="hidden" name="id" value="{{this.id}}">
+          <input type="hidden" name="devoured" value="0">
+          <button type="submit">UNEAT IT!</button>
         </form>
 
       </li>
@@ -36,7 +38,7 @@
 </ul>
 
 <h2>Add a Burger</h2>
-<form class="create-update-form" action="/" method="POST">
+<form class="create-update-form" action="/api/burger" method="POST">
 
   <div class="form-group">
     <label for="bur">Burger Name:</label>
